@@ -4,6 +4,8 @@ machine:
 dependencies:
   override:
     - composer install
+  pre:
+    - mkdir -p build/logs
 test:
   override:
     - phpunit
