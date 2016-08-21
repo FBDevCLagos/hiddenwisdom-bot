@@ -16,3 +16,4 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/webhook', 'HiddenWisdomController@verify');
+$app->post('/webhook', 'HiddenWisdomController@handleMessage');
