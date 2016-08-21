@@ -18,4 +18,37 @@ class HiddenWisdomControllerTest extends TestCase
 
          $this->assertEquals(200, $response->status());
     }
+
+    public function testhandleMessageRequestReturnsMessage()
+    {
+        FBMessageSender::shouldReceive('send')
+                    ->once()
+                    ->andReturn('');
+        $msg = 'Hello, World';
+        $response = $this->call('POST', '/webhook', 
+                [
+                    'entry' => [
+                        [
+                            'messaging' => [
+                                [
+                                    'message' => [
+                                        'text' => $msg                                        
+                                    ],
+                                    'sender' => [
+                                        'id' => '419419'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]);
+         $this->assertEquals(200, $response->status());
+         $this->assertEquals($msg, $response->getContent());
+    }
+
+    public function testhandleMessageReturnsBadRequest()
+    {
+        $response = $this->call('POST', '/webhook', []);
+         $this->assertEquals(400, $response->status());
+    }
 }

@@ -25,6 +25,10 @@ $app = new Laravel\Lumen\Application(
 
 $app->withFacades();
 
+if(!class_exists(App\Facades\FBMessageSender::class, false)) {
+    class_alias(App\Facades\FBMessageSender::class, 'FBMessageSender');
+}
+
 // $app->withEloquent();
 
 /*
@@ -81,6 +85,7 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\FBMessageSenderProvider::class);
 
 /*
 |--------------------------------------------------------------------------
