@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Log;
 use App\Http\Requests\WebhookTokenRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,6 +21,7 @@ class HiddenWisdomController extends Controller
 
     public function handleMessage(Request $request) {
         $messageEntries = $request->get('entry');
+        Log::info(json_encode($request->all()));
         if(!$messageEntries) return response('Message Not Understood', 400);
         foreach($messageEntries as $entry) {
             $messaging = $entry['messaging'];
