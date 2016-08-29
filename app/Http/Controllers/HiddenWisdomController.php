@@ -18,6 +18,19 @@ class HiddenWisdomController extends Controller
         return response("",403);
     }
 
+    public function getProverb($lang, $tag, Request $request)
+    {
+        $path = storage_path() . "/json/proverbs.json";
+        $proverbs = json_decode(file_get_contents($path), true)['proverbs'];
+        for ($i = 0; $i < count($proverbs); $i++) {
+            if ($proverbs[$i]["languange"] == $lang &&
+                in_array($tag, $proverbs[$i]["tags"]) && $proverbs[$i]["status"] == "approved") {
+                return response()->json($proverbs[$i]);
+            }
+        }
+        return response("proverb not found", 404);
+    }
+
     public function handleMessage(Request $request) {
         $messageEntries = $request->get('entry');
         if(!$messageEntries) return response('Message Not Understood', 400);
