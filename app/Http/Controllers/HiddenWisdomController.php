@@ -5,6 +5,7 @@ use Log;
 use App\Http\Requests\WebhookTokenRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use GuzzleHttp\Client;
 
 use FBMessageSender;
 
@@ -25,28 +26,39 @@ class HiddenWisdomController extends Controller
         $proverbs = json_decode(file_get_contents($path), true)['proverbs'];
         for ($i = 0; $i < count($proverbs); $i++) {
             if ($proverbs[$i]["languange"] == $lang &&
-                in_array($tag, $proverbs[$i]["tags"]) && $proverbs[$i]["status"] == "approved") {
+                in_array(strtolower($tag), $proverbs[$i]["tags"]) && $proverbs[$i]["status"] == "approved") {
                 return response()->json($proverbs[$i]);
             }
         }
-        return response("proverb not found", 404);
+        return response()->json(['body' => 'Proverb not Found']);
     }
 
     public function handleMessage(Request $request) {
         $messageEntries = $request->get('entry');
         Log::info(json_encode($request->all()));
-        if(!$messageEntries) return response('Message Not Understood', 400);
+        $msgError = 'Message Not Understood';
+        if(!$messageEntries) return response($msgError, 400);
         foreach($messageEntries as $entry) {
             $messaging = $entry['messaging'];
             foreach($messaging as $messagingEvent) {
                 if(isset($messagingEvent['message']) && !empty($messagingEvent['message'])){
                     $entryMessageText = $messagingEvent['message']['text'];
+                    Log::info($entryMessageText);
                     $entryMessageSenderId = $messagingEvent['sender']['id'];
-                    FBMessageSender::send($entryMessageSenderId, [ 'text' => $entryMessageText ]);
+                    $client = new Client(['base_uri' => getenv('HW_HOST')]);
+                    $searchValues = explode(" ", $messagingEvent['message']['text']);
+                    if ( count($searchValues) < 3) {
+                        FBMessageSender::send($entryMessageSenderId, [ 'text' => $msgError ]);
+                        return response($msgError, 200);
+                    }
+                    $response = $client->get('api/search/'.$searchValues[1].'/'.$searchValues[2]);
+                    $body = $response->getBody();
+                    $jsonDecode = json_decode($response->getBody(), true);
+                    FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['body'] ]);
                     return response($entryMessageText, 200);
                 }
             }
         }
-        return response('Message Not Understood', 400);
+        return response($msgError, 400);
     }
 }
