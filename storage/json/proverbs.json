@@ -1,0 +1,26 @@
+{
+  "proverbs": [
+    {
+      "id": 1,
+      "body": "Proverb body",
+      "languange": "en",
+      "tags": [
+        "love",
+        "name",
+        "peace"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": 2,
+      "body": "Proverb body",
+      "languange": "en",
+      "tags": [
+        "love",
+        "name",
+        "peace"
+      ],
+      "status": "unapproved"
+    }
+  ]
+}
