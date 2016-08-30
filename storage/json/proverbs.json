@@ -2,25 +2,82 @@
   "proverbs": [
     {
       "id": 1,
-      "body": "Proverb body",
+      "body": "Two wrongs don't make a right",
       "languange": "en",
       "tags": [
-        "love",
-        "name",
-        "peace"
+        "argument",
+        "values",
+        "conflict"
       ],
       "status": "approved"
     },
     {
       "id": 2,
-      "body": "Proverb body",
+      "body": "The pen is mightier than the sword.",
       "languange": "en",
       "tags": [
-        "love",
-        "name",
-        "peace"
+        "persuasion",
+        "education"
       ],
-      "status": "unapproved"
+      "status": "approved"
+    },
+    {
+      "id": 3,
+      "body": "There's no place like home.",
+      "languange": "en",
+      "tags": [
+        "home",
+        "travel"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": 4,
+      "body": "The early bird catches the worm.",
+      "languange": "en",
+      "tags": [
+        "punctuality"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": 4,
+      "body": "God helps those who help themselves",
+      "languange": "en",
+      "tags": [
+        "help",
+        "god"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": 5,
+      "body": "Cleanliness is next to godliness.",
+      "languange": "en",
+      "tags": [
+        "clean",
+        "god"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": 6,
+      "body": "Actions speak louder than words.",
+      "languange": "en",
+      "tags": [
+        "action",
+        "talkative"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": 7,
+      "body": "Practice makes perfect.",
+      "languange": "en",
+      "tags": [
+        "practice"
+      ],
+      "status": "approved"
     }
   ]
 }
