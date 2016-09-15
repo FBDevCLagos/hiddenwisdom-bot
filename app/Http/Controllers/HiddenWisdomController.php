@@ -28,7 +28,7 @@ class HiddenWisdomController extends Controller
         $path = storage_path() . "/json/proverbs.json";
         $proverbs = json_decode(file_get_contents($path), true)['proverbs'];
         for ($i = 0; $i < count($proverbs); $i++) {
-            if ($proverbs[$i]["languange"] == $lang &&
+            if ($proverbs[$i]["language"] == $lang &&
                 in_array(strtolower($tag), $proverbs[$i]["tags"]) && $proverbs[$i]["status"] == "approved") {
                 return response()->json($proverbs[$i]);
             }
