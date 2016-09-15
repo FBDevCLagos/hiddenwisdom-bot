@@ -1,83 +1,499 @@
 {
-  "proverbs": [
-    {
-      "id": 1,
-      "body": "Two wrongs don't make a right",
-      "languange": "en",
-      "tags": [
-        "argument",
-        "values",
-        "conflict"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 2,
-      "body": "The pen is mightier than the sword.",
-      "languange": "en",
-      "tags": [
-        "persuasion",
-        "education"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 3,
-      "body": "There's no place like home.",
-      "languange": "en",
-      "tags": [
-        "home",
-        "travel"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 4,
-      "body": "The early bird catches the worm.",
-      "languange": "en",
-      "tags": [
-        "punctuality"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 4,
-      "body": "God helps those who help themselves",
-      "languange": "en",
-      "tags": [
-        "help",
-        "god"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 5,
-      "body": "Cleanliness is next to godliness.",
-      "languange": "en",
-      "tags": [
-        "clean",
-        "god"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 6,
-      "body": "Actions speak louder than words.",
-      "languange": "en",
-      "tags": [
-        "action",
-        "talkative"
-      ],
-      "status": "approved"
-    },
-    {
-      "id": 7,
-      "body": "Practice makes perfect.",
-      "languange": "en",
-      "tags": [
-        "practice"
-      ],
-      "status": "approved"
-    }
-  ]
+   "proverbs":[
+      {
+         "id":1,
+         "body":"Unity is strength",
+         "language":"english",
+         "status":"approved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past",
+            "forgive",
+            "look to the future",
+            "be positive",
+            "wish others well",
+            "payorubaack"
+         ],
+         "created_at":"2016-09-13T10:22:25.475Z",
+         "translations":[
+            {
+               "id":2,
+               "body":"Gidi gidi bụ ugwu eze.",
+               "language":"igbo",
+               "status":"approved",
+               "root_id":1,
+               "created_at":"2016-09-13T10:22:25.581Z",
+               "updated_at":"2016-09-13T10:22:25.581Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":2,
+         "body":"Gidi gidi bụ ugwu eze.",
+         "language":"igbo",
+         "status":"approved",
+         "root_id":1,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past",
+            "forgive",
+            "look to the future",
+            "be positive",
+            "wish others well",
+            "payorubaack",
+            "love",
+            "name"
+         ],
+         "created_at":"2016-09-13T10:22:25.581Z",
+         "translations":[
+            {
+               "id":1,
+               "body":"Unity is strength",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:25.475Z",
+               "updated_at":"2016-09-13T10:22:25.475Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":3,
+         "body":"Make hay while the sun shines",
+         "language":"english",
+         "status":"approved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past",
+            "forgive",
+            "look to the future",
+            "be positive"
+         ],
+         "created_at":"2016-09-13T10:22:25.652Z",
+         "translations":[
+            {
+               "id":4,
+               "body":"Chọọ ewu ojii ka chi dị",
+               "language":"igbo",
+               "status":"approved",
+               "root_id":3,
+               "created_at":"2016-09-13T10:22:25.698Z",
+               "updated_at":"2016-09-13T10:22:25.698Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":4,
+         "body":"Chọọ ewu ojii ka chi dị",
+         "language":"igbo",
+         "status":"approved",
+         "root_id":3,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination"
+         ],
+         "created_at":"2016-09-13T10:22:25.698Z",
+         "translations":[
+            {
+               "id":3,
+               "body":"Make hay while the sun shines",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:25.652Z",
+               "updated_at":"2016-09-13T10:22:25.652Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":5,
+         "body":"Fools rush in where angels fear to tread.",
+         "language":"english",
+         "status":"unapproved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past",
+            "forgive",
+            "look to the future",
+            "be positive",
+            "wish others well",
+            "payorubaack",
+            "love",
+            "name"
+         ],
+         "created_at":"2016-09-13T10:22:25.749Z",
+         "translations":[
+            {
+               "id":6,
+               "body":"Ihe ehi hụrụ gbalaba oso ka okuku huru na-atụ onu",
+               "language":"igbo",
+               "status":"approved",
+               "root_id":5,
+               "created_at":"2016-09-13T10:22:25.806Z",
+               "updated_at":"2016-09-13T10:22:25.806Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":6,
+         "body":"Ihe ehi hụrụ gbalaba oso ka okuku huru na-atụ onu",
+         "language":"igbo",
+         "status":"approved",
+         "root_id":5,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy"
+         ],
+         "created_at":"2016-09-13T10:22:25.806Z",
+         "translations":[
+            {
+               "id":5,
+               "body":"Fools rush in where angels fear to tread.",
+               "language":"english",
+               "status":"unapproved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:25.749Z",
+               "updated_at":"2016-09-13T10:22:25.749Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":7,
+         "body":"Be forward-looking; let go of the past",
+         "language":"english",
+         "status":"approved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy"
+         ],
+         "created_at":"2016-09-13T10:22:25.840Z",
+         "translations":[
+            {
+               "id":8,
+               "body":"Ibi tí à ńlọ là ńwò, a kìí wo ibi tí a ti ṣubú",
+               "language":"yoruba",
+               "status":"approved",
+               "root_id":7,
+               "created_at":"2016-09-13T10:22:25.863Z",
+               "updated_at":"2016-09-13T10:22:25.863Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":8,
+         "body":"Ibi tí à ńlọ là ńwò, a kìí wo ibi tí a ti ṣubú",
+         "language":"yoruba",
+         "status":"approved",
+         "root_id":7,
+         "tags":[
+            "unity"
+         ],
+         "created_at":"2016-09-13T10:22:25.863Z",
+         "translations":[
+            {
+               "id":7,
+               "body":"Be forward-looking; let go of the past",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:25.840Z",
+               "updated_at":"2016-09-13T10:22:25.840Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":9,
+         "body":"Be positive; live and let live.",
+         "language":"english",
+         "status":"unapproved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork"
+         ],
+         "created_at":"2016-09-13T10:22:25.881Z",
+         "translations":[
+            {
+               "id":10,
+               "body":"Tí ẹyẹ ò bá fín ẹyẹ níràn, ojú ọrun tó ẹyẹ ẹ́ fò láì fara kanra. ",
+               "language":"yoruba",
+               "status":"unapproved",
+               "root_id":9,
+               "created_at":"2016-09-13T10:22:25.928Z",
+               "updated_at":"2016-09-13T10:22:25.928Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":10,
+         "body":"Tí ẹyẹ ò bá fín ẹyẹ níràn, ojú ọrun tó ẹyẹ ẹ́ fò láì fara kanra. ",
+         "language":"yoruba",
+         "status":"unapproved",
+         "root_id":9,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past",
+            "forgive",
+            "look to the future",
+            "be positive",
+            "wish others well",
+            "payorubaack"
+         ],
+         "created_at":"2016-09-13T10:22:25.928Z",
+         "translations":[
+            {
+               "id":9,
+               "body":"Be positive; live and let live.",
+               "language":"english",
+               "status":"unapproved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:25.881Z",
+               "updated_at":"2016-09-13T10:22:25.881Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":11,
+         "body":"Keep hope alive; don't give up.",
+         "language":"english",
+         "status":"approved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness"
+         ],
+         "created_at":"2016-09-13T10:22:25.976Z",
+         "translations":[
+            {
+               "id":12,
+               "body":"Adániwáyè ò gbàgbé ẹnìkan; àìmàsìkò ló ńdààmú ẹ̀dá.",
+               "language":"yoruba",
+               "status":"approved",
+               "root_id":11,
+               "created_at":"2016-09-13T10:22:26.028Z",
+               "updated_at":"2016-09-13T10:22:26.028Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":12,
+         "body":"Adániwáyè ò gbàgbé ẹnìkan; àìmàsìkò ló ńdààmú ẹ̀dá.",
+         "language":"yoruba",
+         "status":"approved",
+         "root_id":11,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past",
+            "forgive",
+            "look to the future",
+            "be positive",
+            "wish others well",
+            "payorubaack",
+            "love",
+            "name",
+            "peace"
+         ],
+         "created_at":"2016-09-13T10:22:26.028Z",
+         "translations":[
+            {
+               "id":11,
+               "body":"Keep hope alive; don't give up.",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:25.976Z",
+               "updated_at":"2016-09-13T10:22:25.976Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":13,
+         "body":"One good turn deserves another.",
+         "language":"english",
+         "status":"approved",
+         "root_id":0,
+         "tags":[
+            "unity"
+         ],
+         "created_at":"2016-09-13T10:22:26.082Z",
+         "translations":[
+            {
+               "id":14,
+               "body":"Ẹni tó bá da omi síwájú á tẹ'lẹ tútù.",
+               "language":"yoruba",
+               "status":"approved",
+               "root_id":13,
+               "created_at":"2016-09-13T10:22:26.098Z",
+               "updated_at":"2016-09-13T10:22:26.098Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":14,
+         "body":"Ẹni tó bá da omi síwájú á tẹ'lẹ tútù.",
+         "language":"yoruba",
+         "status":"approved",
+         "root_id":13,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork"
+         ],
+         "created_at":"2016-09-13T10:22:26.098Z",
+         "translations":[
+            {
+               "id":13,
+               "body":"One good turn deserves another.",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:26.082Z",
+               "updated_at":"2016-09-13T10:22:26.082Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":15,
+         "body":"A dead person shall have all the sleep necessary.",
+         "language":"english",
+         "status":"approved",
+         "root_id":0,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past"
+         ],
+         "created_at":"2016-09-13T10:22:26.138Z",
+         "translations":[
+            {
+               "id":16,
+               "body":"Ura ga-eju onye nwuru anwu afo",
+               "language":"igbo",
+               "status":"unapproved",
+               "root_id":15,
+               "created_at":"2016-09-13T10:22:26.196Z",
+               "updated_at":"2016-09-13T10:22:26.196Z",
+               "user_id":1
+            },
+            {
+               "id":17,
+               "body":"englishi to ku, o ma sun dada",
+               "language":"yoruba",
+               "status":"unapproved",
+               "root_id":15,
+               "created_at":"2016-09-13T10:22:26.263Z",
+               "updated_at":"2016-09-13T10:22:26.263Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":16,
+         "body":"Ura ga-eju onye nwuru anwu afo",
+         "language":"igbo",
+         "status":"unapproved",
+         "root_id":15,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination",
+            "urgenglishcy",
+            "past"
+         ],
+         "created_at":"2016-09-13T10:22:26.196Z",
+         "translations":[
+            {
+               "id":15,
+               "body":"A dead person shall have all the sleep necessary.",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:26.138Z",
+               "updated_at":"2016-09-13T10:22:26.138Z",
+               "user_id":1
+            }
+         ]
+      },
+      {
+         "id":17,
+         "body":"englishi to ku, o ma sun dada",
+         "language":"yoruba",
+         "status":"unapproved",
+         "root_id":15,
+         "tags":[
+            "unity",
+            "togetherness",
+            "teamwork",
+            "procrastination"
+         ],
+         "created_at":"2016-09-13T10:22:26.263Z",
+         "translations":[
+            {
+               "id":15,
+               "body":"A dead person shall have all the sleep necessary.",
+               "language":"english",
+               "status":"approved",
+               "root_id":0,
+               "created_at":"2016-09-13T10:22:26.138Z",
+               "updated_at":"2016-09-13T10:22:26.138Z",
+               "user_id":1
+            }
+         ]
+      }
+   ]
 }
