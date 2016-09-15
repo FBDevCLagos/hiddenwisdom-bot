@@ -30,10 +30,10 @@ class HiddenWisdomController extends Controller
         for ($i = 0; $i < count($proverbs); $i++) {
             if ($proverbs[$i]["language"] == $lang &&
                 in_array(strtolower($tag), $proverbs[$i]["tags"]) && $proverbs[$i]["status"] == "approved") {
-                return response()->json($proverbs[$i]);
+                return response()->json(['proverbs' => [$proverbs[$i]]]);
             }
         }
-        return response()->json(['body' => 'Proverb not Found']);
+        return response()->json(['proverbs' => [['body' => 'Proverb not Found']]]);
     }
 
     public function handleMessage(Request $request) {
@@ -57,7 +57,7 @@ class HiddenWisdomController extends Controller
                     $response = $client->get('api/v1/proverbs?lang='.$searchValues[1].'&tag='.$searchValues[2]);
                     $body = $response->getBody();
                     $jsonDecode = json_decode($response->getBody(), true);
-                    FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['body'] ]);
+                    FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['proverbs'][0]['body'] ]);
                     return response($entryMessageText, 200);
                 }
             }
