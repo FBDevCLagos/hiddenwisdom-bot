@@ -58,7 +58,7 @@ class HiddenWisdomController extends Controller
                     $entryMessageSenderId = $messagingEvent['sender']['id'];
                     switch($payload){
                         case 'HELP':
-                            return FBMessageSender::send($entryMessageSenderId, [
+                             FBMessageSender::send($entryMessageSenderId, [
                                 'text' => "HELP\n".
                                           "===========\n".
                                           "commands:\n".
@@ -67,9 +67,10 @@ class HiddenWisdomController extends Controller
                                           "proverbs random\n\n"
                                 ]);
                         default:
-                            return FBMessageSender::send($entryMessageSenderId, [ 'text' => 'Not understood' ]);
+                            FBMessageSender::send($entryMessageSenderId, [ 'text' => 'Not understood' ]);
                     }
                 }
+                return response("",200);
             }
         }
         return response($msgError, 400);
@@ -82,19 +83,19 @@ class HiddenWisdomController extends Controller
         $client = new Client(['base_uri' => getenv('HW_HOST')]);
         $searchValues = explode(" ", $messagingEvent['message']['text']);
         // Typing On
-        FBMessageSender::sendArray($entryMessageSenderId, [ 'sender_action' => 'typing_on' ]);
+        FBMessageSender::sendArray($entryMessageSenderId, ['sender_action' => 'typing_on']);
         if ( count($searchValues) < 3) {
-            FBMessageSender::send($entryMessageSenderId, [ 'text' => $msgError ]);
+            FBMessageSender::send($entryMessageSenderId, ['text' => 'Message Not Understood']);
             // Typing Off
-            FBMessageSender::sendArray($entryMessageSenderId, [ 'sender_action' => 'typing_off' ]);
+            FBMessageSender::sendArray($entryMessageSenderId, ['sender_action' => 'typing_off']);
             return response($msgError, 200);
         }
         $response = $client->get('api/v1/proverbs?lang='.$searchValues[1].'&tag='.$searchValues[2]);
         $body = $response->getBody();
         $jsonDecode = json_decode($response->getBody(), true);
-        FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['proverbs'][0]['body'] ]);
+        FBMessageSender::send($entryMessageSenderId, ['text' => $jsonDecode['proverbs'][0]['body']]);
         // Typing Off
-        FBMessageSender::sendArray($entryMessageSenderId, [ 'sender_action' => 'typing_off' ]);
+        FBMessageSender::sendArray($entryMessageSenderId, ['sender_action' => 'typing_off']);
         return response($entryMessageText, 200);
     }
 }
