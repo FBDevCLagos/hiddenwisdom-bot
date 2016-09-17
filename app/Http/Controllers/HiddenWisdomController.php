@@ -77,6 +77,7 @@ class HiddenWisdomController extends Controller
     }
 
     private function handleMessageCommand($messagingEvent) {
+        $msgError = 'Message Not Understood';
         $entryMessageText = $messagingEvent['message']['text'];
         Log::info($entryMessageText);
         $entryMessageSenderId = $messagingEvent['sender']['id'];
@@ -85,7 +86,7 @@ class HiddenWisdomController extends Controller
         // Typing On
         FBMessageSender::sendArray($entryMessageSenderId, ['sender_action' => 'typing_on']);
         if ( count($searchValues) < 3) {
-            FBMessageSender::send($entryMessageSenderId, ['text' => 'Message Not Understood']);
+            FBMessageSender::send($entryMessageSenderId, ['text' => $msgError]);
             // Typing Off
             FBMessageSender::sendArray($entryMessageSenderId, ['sender_action' => 'typing_off']);
             return response($msgError, 200);
