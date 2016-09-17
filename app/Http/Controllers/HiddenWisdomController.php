@@ -20,17 +20,20 @@ class HiddenWisdomController extends Controller
         return response("",403);
     }
 
-    public function getProverb($lang, $tag, Request $request)
+    public function getProverb(Request $request)
     {
+        $lang = $request->query('lang');
+        $tag = $request->query('tag');
+        if(!$lang && !$tag) return response()->json(['body' => 'Proverb not Found']);
         $path = storage_path() . "/json/proverbs.json";
         $proverbs = json_decode(file_get_contents($path), true)['proverbs'];
         for ($i = 0; $i < count($proverbs); $i++) {
-            if ($proverbs[$i]["languange"] == $lang &&
+            if ($proverbs[$i]["language"] == $lang &&
                 in_array(strtolower($tag), $proverbs[$i]["tags"]) && $proverbs[$i]["status"] == "approved") {
-                return response()->json($proverbs[$i]);
+                return response()->json(['proverbs' => [$proverbs[$i]]]);
             }
         }
-        return response()->json(['body' => 'Proverb not Found']);
+        return response()->json(['proverbs' => [['body' => 'Proverb not Found']]]);
     }
 
     public function handleMessage(Request $request) {
@@ -51,10 +54,10 @@ class HiddenWisdomController extends Controller
                         FBMessageSender::send($entryMessageSenderId, [ 'text' => $msgError ]);
                         return response($msgError, 200);
                     }
-                    $response = $client->get('api/search/'.$searchValues[1].'/'.$searchValues[2]);
+                    $response = $client->get('api/v1/proverbs?lang='.$searchValues[1].'&tag='.$searchValues[2]);
                     $body = $response->getBody();
                     $jsonDecode = json_decode($response->getBody(), true);
-                    FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['body'] ]);
+                    FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['proverbs'][0]['body'] ]);
                     return response($entryMessageText, 200);
                 }
             }
