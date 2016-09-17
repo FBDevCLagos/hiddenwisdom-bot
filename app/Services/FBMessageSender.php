@@ -44,7 +44,7 @@ class FBMessageSender
         $client = new Client(['base_uri' => $this->base_uri]);
         $client->request(
             'POST',
-            'me/messages',
+            'me/thread_settings',
             [
                 'query' => ['access_token' => getenv('PAGE_ACCESS_TOKEN')],
                 'json' => [
