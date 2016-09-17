@@ -39,7 +39,7 @@ class FBMessageSender
         );
     }
 
-    public function sendPostBackActions($recipientId, $array)
+    public function sendPostBackActions()
     {
         $client = new Client(['base_uri' => $this->base_uri]);
         $client->request(
