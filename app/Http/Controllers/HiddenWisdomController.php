@@ -47,11 +47,11 @@ class HiddenWisdomController extends Controller
                 if(isset($messagingEvent['message']) && !empty($messagingEvent['message'])){
                     $entryMessageText = $messagingEvent['message']['text'];
                     Log::info($entryMessageText);
-                    // Typing On
-                    FBMessageSender::send($entryMessageSenderId, [ 'sender_action' => 'typing_on' ]);
                     $entryMessageSenderId = $messagingEvent['sender']['id'];
                     $client = new Client(['base_uri' => getenv('HW_HOST')]);
                     $searchValues = explode(" ", $messagingEvent['message']['text']);
+                    // Typing On
+                    FBMessageSender::send($entryMessageSenderId, [ 'sender_action' => 'typing_on' ]);
                     if ( count($searchValues) < 3) {
                         FBMessageSender::send($entryMessageSenderId, [ 'text' => $msgError ]);
                         // Typing Off
