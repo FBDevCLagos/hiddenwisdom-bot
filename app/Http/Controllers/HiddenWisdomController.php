@@ -51,11 +51,11 @@ class HiddenWisdomController extends Controller
                     $client = new Client(['base_uri' => getenv('HW_HOST')]);
                     $searchValues = explode(" ", $messagingEvent['message']['text']);
                     // Typing On
-                    FBMessageSender::send($entryMessageSenderId, [ 'sender_action' => 'typing_on' ]);
+                    FBMessageSender::sendArray($entryMessageSenderId, [ 'sender_action' => 'typing_on' ]);
                     if ( count($searchValues) < 3) {
                         FBMessageSender::send($entryMessageSenderId, [ 'text' => $msgError ]);
                         // Typing Off
-                        FBMessageSender::send($entryMessageSenderId, [ 'sender_action' => 'typing_off' ]);
+                        FBMessageSender::sendArray($entryMessageSenderId, [ 'sender_action' => 'typing_off' ]);
                         return response($msgError, 200);
                     }
                     $response = $client->get('api/v1/proverbs?lang='.$searchValues[1].'&tag='.$searchValues[2]);
@@ -63,7 +63,7 @@ class HiddenWisdomController extends Controller
                     $jsonDecode = json_decode($response->getBody(), true);
                     FBMessageSender::send($entryMessageSenderId, [ 'text' => $jsonDecode['proverbs'][0]['body'] ]);
                     // Typing Off
-                    FBMessageSender::send($entryMessageSenderId, [ 'sender_action' => 'typing_off' ]);
+                    FBMessageSender::sendArray($entryMessageSenderId, [ 'sender_action' => 'typing_off' ]);
                     return response($entryMessageText, 200);
                 }
             }
