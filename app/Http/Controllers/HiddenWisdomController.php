@@ -20,6 +20,12 @@ class HiddenWisdomController extends Controller
         return response("",403);
     }
 
+    public function addMenu(Request $request)
+    {
+        FBMessageSender::sendPostBackActions();
+        return response("",200);
+    }
+
     public function getProverb(Request $request)
     {
         $lang = $request->query('lang');

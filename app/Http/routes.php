@@ -17,6 +17,7 @@ $app->get('/', function () use ($app) {
 
 $app->get('/webhook', 'HiddenWisdomController@verify');
 $app->post('/webhook', 'HiddenWisdomController@handleMessage');
+$app->get('/webhook/add_menu', 'HiddenWisdomController@addMenu');
 
 // $app->get('/api/search/{lang}/{tag}', 'HiddenWisdomController@getProverb');
 $app->get('/api/v1/proverbs', 'HiddenWisdomController@getProverb');
